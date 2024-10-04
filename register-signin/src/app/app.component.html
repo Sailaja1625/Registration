@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="signin-card w-50 m-auto">
+      <h4 class="text-center f-bold mb-3">Sign-In Form</h4>
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="mb-4">
+        <p-floatLabel>
+          <input pInputText id="username"
+          name="username"
+           [(ngModel)]="username"
+          #usernameRef="ngModel"
+          required
+          minlength="3"
+          maxlength="15"
+            />
+          <label for="username">Username</label>
+        </p-floatLabel>
+        <div class="mb-2" *ngIf="usernameRef.invalid && usernameRef.touched" class="text-danger">
+          <p *ngIf="usernameRef.errors?.['required']">Username is required</p>
+          <p *ngIf="usernameRef.errors?.['minlength']">Username must be min 3 characters</p>
+          <p *ngIf="usernameRef.errors?.['maxlength']">Username is not exceeded required length</p>
+        </div>
+      </div>
+      <div class="position-relative mt-3">
+        <p-floatLabel>
+          <input pInputText id="password"
+          name="password" 
+           [(ngModel)]="password"
+          #passwordRef="ngModel"
+          [type]="showPassword ? 'text' : 'password'"
+          required
+          minlength="3"
+          maxlength="15"
+            />
+          <label for="password">password</label>
+        </p-floatLabel>
+        <i class="pi" [ngClass]="showPassword ? 'pi-eye-slash': 'pi-eye'" (click)="togglePasswordVisibility()"
+        style="position: absolute; right: 10px; top: 10px; cursor: pointer;" >       
+        </i>
+        <div class="mb-2" *ngIf="passwordRef.invalid && passwordRef.touched" class="text-danger">
+          <p *ngIf="passwordRef.errors?.['required']">password is required</p>
+          <p *ngIf="passwordRef.errors?.['minlength']">password must be min 3 characters</p>
+          <p *ngIf="passwordRef.errors?.['maxlength']">password is not exceeded required length</p>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <button pButton label="Submit" [disabled]="form.invalid"></button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

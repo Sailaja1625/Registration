@@ -1,0 +1,24 @@
+p-floatLabel input{
+    width: 100%;
+}
+.text-danger {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+input.ng-touched.ng-invalid {
+    border-color: red;
+  }
+  label {
+    font-size: 18px;
+  }
+
+  p{
+    font-size: 18px;
+  }
+  .signin-card  {
+    border: 1px solid #494848;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(105, 103, 103, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 30px 20px;
+  }
